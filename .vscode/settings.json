@@ -1,0 +1,11 @@
+{
+  //save前に prettier の設定含む eslint で自動整形
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  //save前に vueファイル以外を自動整形
+  "editor.formatOnSave": true,
+  "[vue]": {
+    "editor.formatOnSave": false
+  }
+}
