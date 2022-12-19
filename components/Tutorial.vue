@@ -58,20 +58,24 @@
   import axios from 'axios'
 
   export default {
-  data() {
-    return {products: '商品1'}
-  },
   //非同期処理を同期処理にするために async で宣言
   async asyncData() {
     // Stein の API URL / シート名
-    const url =
-      'https://api.steinhq.com/v1/storages/6395cbb3eced9b09e9a91e17/product'
+    const res = this.$axios.get('/api/sample')
 
     const { data } = await axios.get(url)
     return { products: data }
   },
+  data() {
+    const url =
+      'https://api.steinhq.com/v1/storages/6395cbb3eced9b09e9a91e17/product'
+
+    const { data } = axios.get(url)
+    return {products: data}
+  },
 }
 </script>
+
 
 
 

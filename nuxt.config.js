@@ -1,4 +1,13 @@
 export default {
+  axios: {
+    proxy: true
+  },
+  proxy: {
+    '/api/': {
+      target: 'https://api.steinhq.com/v1/storages/6395cbb3eced9b09e9a91e17/product',   //APIのURL
+      pathRewrite: { '^/api/': '' }
+    }
+  },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'nuxt_simple_procudt_site',
@@ -30,7 +39,11 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ['bootstrap-vue/nuxt'],
+  modules: [
+    'bootstrap-vue/nuxt',
+    // 追記
+    '@nuxtjs/axios',
+  ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
